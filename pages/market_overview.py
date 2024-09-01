@@ -24,7 +24,7 @@ def display():
     data = None
     benchmark_data = None
 
-    # Handling each market selection
+    # Handling of each market selection, show closing price graph and compare to benchmark
     if market == "Equity":
         ticker = st.sidebar.selectbox("Select a company", [
             "Apple (AAPL)", "Microsoft (MSFT)", "Google (GOOGL)", 
@@ -98,7 +98,7 @@ def display():
     # Add color picker for line plot color
     line_color = st.sidebar.color_picker("Pick a color for the graph", "#FF5733")
 
-    # 1. Closing Price Graph
+    # Closing Price Graph
     st.subheader(f"{ticker} Closing Price Data")
     closing_fig = px.line(data, x=data.index, y='Close', title=f'{ticker} Closing Price')
     closing_fig.update_traces(line=dict(color=line_color))
@@ -112,7 +112,7 @@ def display():
 
             benchmark_color = st.sidebar.color_picker("Pick a color for the benchmark graph", "#33FF57")
 
-            # 2. Benchmark Comparison Graph (for Equity, Bond, Commodities)
+            # Benchmark Comparison Graph (for Equity, Bond, Commodities)
             st.subheader(f"{ticker} vs {benchmark_ticker} Benchmark (Normalized)")
             comparison_fig = go.Figure()
             comparison_fig.add_trace(go.Scatter(x=data.index, y=data['Normalized'], mode='lines', name=f'{ticker} (Normalized)', line=dict(color=line_color)))

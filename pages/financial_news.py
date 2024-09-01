@@ -14,35 +14,6 @@ from transformers import pipeline
 from wordcloud import WordCloud
 from datetime import datetime, timedelta
 
-
-# def display():
-#     st.title("Financial News")
-
-# # Add the fear and greed index to show investor sentiment
-# def fetch_fear_and_greed_index():
-#     """Fetch the current Fear and Greed Index."""
-#     url = "https://api.alternative.me/fng/?limit=1"  # API for Fear and Greed Index
-#     response = requests.get(url)
-#     data = response.json()
-#     if data and data.get("data"):
-#         return data["data"][0]
-#     return None
-
-# st.write("""
-#     ### Information on fear and greed index
-#     The Fear and Greed Index aims to capture two fundamental emotions that drive market behavior: fear and greed. 
-#     Fear Indicators might include metrics such as market volatility, put/call ratios (which measure investor sentiment about market declines), and other signs that suggest caution or concern among investors.
-#     Greed Indicators might encompass metrics such as stock market momentum, market breadth (the number of stocks advancing vs. declining), and other signs of optimistic or bullish behavior.         
-# """)
-# st.write("""
-#     ###  Interpreting the Index
-#     - 0-25 (Extreme Fear): This range indicates that investors are highly fearful, which might suggest that the market is experiencing significant stress or uncertainty. Extreme fear often accompanies market downturns and can signal potential buying opportunities if the fear is overblown.
-#     - 26 to 49 (Fear): This range shows that there is a general atmosphere of fear in the market, but it is less intense than extreme fear. Investors might be cautious, and the market could be experiencing volatility or downward pressure.
-#     - 50 to 74 (Greed): This range suggests that investors are generally feeling optimistic and are more inclined towards risk-taking. Greed can drive market rallies, but it may also indicate that the market is overheated and due for a correction.
-#     75 to 100 (Extreme Greed): This range represents a high level of investor enthusiasm and risk-taking. Extreme greed can be a warning sign that the market is overheated and could be due for a pullback or correction.                           
-# """)
-
-
 def display():
     st.title("Financial News")
 
@@ -59,8 +30,6 @@ def display():
             sources_str = ",".join(sources)
             url += f"&sources={sources_str}"
         return requests.get(url).json()
-
-   
 
     # Sidebar for News Settings
     st.sidebar.subheader("News Settings")
@@ -113,21 +82,6 @@ def display():
 
     # Fetch the news data
     news_data = fetch_news(keyword, news_sources, from_date, today)
-
-    # # Fetch the Fear and Greed Index
-    # fng_data = fetch_fear_and_greed_index()
-
-    # if fng_data:
-    #     st.subheader("Current Fear and Greed Index")
-    #     st.write(f"**Index Value**: {fng_data['value']} ({fng_data['value_classification']})")
-    #     st.write(f"**Last Updated**: {fng_data['timestamp']}")
-
-    #     # Visual representation of Fear and Greed
-    #     fig, ax = plt.subplots()
-    #     ax.barh(["Fear and Greed Index"], [int(fng_data['value'])], color="orange")
-    #     ax.set_xlim([0, 100])
-    #     ax.set_title("Fear and Greed Index")
-    #     st.pyplot(fig)
 
     if news_data["status"] != "ok":
         st.error(f"Failed to fetch news articles: {news_data.get('message', 'Unknown error')}")

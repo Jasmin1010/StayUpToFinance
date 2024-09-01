@@ -28,12 +28,12 @@ def display():
 
     # Initialize reference_values with default values or fetch them from a data source
     reference_values = {
-        'dividend_yield': 0.02,  # Example default value (2%)
-        'dividend_growth': 0.05,  # Example default value (5%)
-        'profit_growth': 0.03  # Example default value (3%)
+        'dividend_yield': 0.02,  
+        'dividend_growth': 0.05,  
+        'profit_growth': 0.03  
     }
 
-    # Fetch the Fear and Greed Index
+    # Fetch the Fear and Greed Index plus explanation provision
     fng_data = fetch_fear_and_greed_index()
 
     if fng_data:
@@ -122,11 +122,11 @@ def display():
             score = 5  # Default score if data is missing
         return round(score), reference_values['profit_growth']
 
-    # Reference values for the industry (example values)
+    # Reference values for the industry -> not used
     reference_values = {
-        "dividend_yield": 0.015,  # 1.5% average for tech/consumer electronics
-        "dividend_growth": 0.08,  # 8% average 5-year dividend growth
-        "profit_growth": 0.10,    # 10% average revenue and earnings growth
+        "dividend_yield": 0.015,  
+        "dividend_growth": 0.08,  
+        "profit_growth": 0.10,    
     }
 
     # Sidebar with company and ticker selection
@@ -154,7 +154,7 @@ def display():
     returns = get_historical_returns(company_name)
 
 
-    # Calculate scores with industry references
+    # Calculate scores with industry references -> not used
     dividend_growth_score, div_growth_ref = evaluate_dividend_growth(metrics, reference_values)
     dividend_yield_score, div_yield_ref = evaluate_dividend_yield(metrics, reference_values)
     profit_growth_score, profit_growth_ref = evaluate_profit_growth(metrics, reference_values)

@@ -33,7 +33,7 @@ def display():
     # Determine the ticker based on the selection or custom input
     ticker = custom_ticker.upper() if custom_ticker else company_dict[company_name]
 
-    # Include "5 years" in the time period selection
+    # Time period selection
     period = st.sidebar.selectbox("Select time period", ["1mo", "3mo", "6mo", "1y", "5y"])
 
     # Download data for the selected company
@@ -75,7 +75,7 @@ def display():
     hist_data['Absolute Change'] = hist_data['Close'].diff()
     hist_data['Relative Change (%)'] = hist_data['Close'].pct_change() * 100
 
-    # Plotting Absolute and Relative changes side by side
+    # Plotting Absolute and Relative changes 
     fig, axes = plt.subplots(1, 2, figsize=(15, 6))
 
     # Plot Absolute Change

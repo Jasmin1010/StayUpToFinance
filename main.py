@@ -76,7 +76,7 @@ st.markdown('</div>', unsafe_allow_html=True)
 
 st.markdown('</div>', unsafe_allow_html=True)
 
-# Display help content in an expandable section
+# Display help content in an expandable section as requested in assigment description: "All parts of the assignment should contain short and precise explanations of individual components of the pages".
 if st.session_state.get("show_help", False):
     with st.expander("App Information"):
         st.write("""

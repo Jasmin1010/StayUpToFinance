@@ -1,1 +1,14 @@
 streamlit
+yfinance
+matplotlib
+seaborn
+numpy
+pandas
+transformers
+torch  
+requests
+statsmodels
+scipy
+plotly
+wordcloud
+datetime

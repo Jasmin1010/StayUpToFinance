@@ -6,7 +6,11 @@
     "codespaces": {
       "openFiles": [
         "README.md",
-        "streamlit_app.py"
+        "main.py",
+        "company_analysis.py",
+        "market_guide.py",
+        "financial_news.py",
+        "market_overview.py"
       ]
     },
     "vscode": {
